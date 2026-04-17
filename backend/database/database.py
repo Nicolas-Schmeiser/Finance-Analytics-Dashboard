@@ -12,10 +12,7 @@ from sqlmodel import SQLModel, create_engine
 DATABASE_URL = "sqlite:///database/finance.db"
 
 # Create database engine
-engine = create_engine(
-    DATABASE_URL,
-    echo=True  # Shows SQL queries in terminal (useful for debugging)
-)
+engine = create_engine(DATABASE_URL)
 
 
 def create_db_and_tables():
