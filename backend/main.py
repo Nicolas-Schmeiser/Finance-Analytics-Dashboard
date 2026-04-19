@@ -8,13 +8,13 @@ from database.schemas import TransactionWithCategory
     
 app = FastAPI()
 
-# Add CORS middleware
+# Add CORS middleware otherwise the frontend won't be able to access the API response due to CORS policy
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Allow frontend origin
+    allow_origins=["http://localhost:5173"],  # Allow project defined frontend origin
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all methods
-    allow_headers=["*"],  # Allow all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/transactions", response_model=list[TransactionWithCategory]) # response model defines the structure of the API response, included in docs
